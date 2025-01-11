@@ -13,7 +13,7 @@ class PostPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->isAdmin() || $user->isEditor();
     }
 
     /**
@@ -21,7 +21,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post): bool
     {
-        //
+        return $user->isAdmin() || $user->isEditor();
     }
 
     /**
@@ -29,7 +29,7 @@ class PostPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->isAdmin() || $user->isEditor();
     }
 
     /**
@@ -37,7 +37,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        //
+        return $user->isAdmin() || $user->isEditor();
     }
 
     /**
@@ -45,15 +45,23 @@ class PostPolicy
      */
     public function delete(User $user, Post $post): bool
     {
-        //
+        return $user->isAdmin();
     }
 
     /**
-     * Determine whether the user can restore the model.
+     * Determine whether the user can bulk delete the model.
      */
-    public function restore(User $user, Post $post): bool
+    public function deleteAny(User $user): bool
     {
-        //
+        return $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can bulk restore the model.
+     */
+    public function restoreAny(User $user): bool
+    {
+        return $user->isAdmin();
     }
 
     /**
@@ -61,6 +69,14 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post): bool
     {
-        //
+        return $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can bulk  permanently delete the model.
+     */
+    public function forceDeleteAny(User $user): bool
+    {
+        return $user->isAdmin();
     }
 }
