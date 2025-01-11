@@ -27,7 +27,7 @@
             </div>
             <div>
                 <div class="flex items-center">
-                    <livewire:like-button :key="'likebutton-' . $post->id" :$post />
+                    {{-- <livewire:like-button :key="'likebutton-' . $post->id" :$post /> --}}
                 </div>
             </div>
         </div>

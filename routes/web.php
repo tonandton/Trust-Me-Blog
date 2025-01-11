@@ -21,6 +21,15 @@ Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 
+// Route::get('/login', function () {
+//     if (request()->has('redirect')) {
+//         session(['url.intended' => request()->query('redirect')]);
+//     }
+
+//     return view('auth.login');
+// })->name('login');
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -10,7 +10,8 @@
             Post Comment
         </button>
     @else
-        <a wire:navigate class="text-green-500 underline py-1" href="{{ route('login') }}"> Login to Post Comments</a>
+        <a wire:navigate class="text-green-500 underline py-1" href="{{ route('login', ['redirect' => url()->current()]) }}">
+            Login to Post Comments</a>
     @endauth
 
     <div class="user-comments px-3 py-2 mt-5">
