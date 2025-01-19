@@ -11,6 +11,8 @@ class PostsPerMonthChart extends ChartWidget
 {
     protected static ?string $heading = 'Chart';
 
+    protected int|string|array $columnSpan = 'full';
+
     protected function getData(): array
     {
 
@@ -22,6 +24,7 @@ class PostsPerMonthChart extends ChartWidget
                 end: now()->endOfYear(),
             )
             ->perMonth()
+            ->dateColumn('published_at')
             ->count();
 
         return [

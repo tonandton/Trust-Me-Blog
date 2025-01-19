@@ -18,10 +18,17 @@ class ListPosts extends ListRecords
         ];
     }
 
-    protected function getHeaderWidgets(): array
+    // protected function getHeaderWidgets(): array
+    // {
+    //     return [
+    //         PostsPerMonthChart::class,
+    //     ];
+    // }
+
+    protected function getFooterWidgets(): array
     {
         return [
-            PostsPerMonthChart::class,
+            PostsPerMonthChart::class
         ];
     }
 }
