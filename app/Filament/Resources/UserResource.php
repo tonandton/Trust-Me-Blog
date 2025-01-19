@@ -32,6 +32,7 @@ class UserResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Select::make('role')
                     ->options(User::ROLES)
+                    ->sortable()
                     ->required()
             ]);
     }
